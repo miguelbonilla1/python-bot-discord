@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  crypto-bot:
+    build: .
+    environment:
+      - DISCORD_TOKEN=${DISCORD_BOT_TOKEN}
+    env_file:
+      - .env
+    restart: unless-stopped
