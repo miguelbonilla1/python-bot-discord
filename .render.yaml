@@ -6,10 +6,23 @@ env:
   - COINGECKO_API_TIMEOUT=30
   - COINGECKO_RETRIES=3
 
-# Disable port scanning
+# Configure worker settings
+resources:
+  cpu: 1
+  memory: 512
+
+# Health check configuration
 healthCheck:
   type: NONE
   interval: 300s
   timeout: 30s
   retries: 3
   startPeriod: 30s
+
+# Environment variables
+env:
+  - DISCORD_TOKEN
+  - COINGECKO_API_TIMEOUT=30
+  - COINGECKO_RETRIES=3
+  - PYTHONUNBUFFERED=1  # Ensure logs are immediately visible
+  - PYTHONPATH=/app  # Set Python path to application directory
