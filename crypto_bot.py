@@ -101,7 +101,8 @@ async def get_crypto_price(ctx, coin: str = 'bitcoin'):
         await ctx.send(embed=embed)
     
     except Exception as e:
-        await ctx.send(f"Error fetching price for {coin}: {str(e)}")
+        logger.error(f"Error fetching price for {coin}: {str(e)}")
+        await ctx.send(f"Sorry, there was an error fetching the price for {coin}. Please try again later.")
         print(f"Error in get_crypto_price: {str(e)}")
 
 @bot.command(name='coins')

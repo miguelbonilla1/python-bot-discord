@@ -1,5 +1,7 @@
-type: web
-startCommand: python crypto_bot.py
+type: worker
+start: python crypto_bot.py
 env:
   - DISCORD_TOKEN=${DISCORD_TOKEN}
-buildCommand: pip install -r requirements.txt
+  - COINGECKO_API_TIMEOUT=30
+  - COINGECKO_RETRIES=3
+buildCommand: docker build -t crypto-bot .
