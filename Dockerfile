@@ -17,3 +17,4 @@ ENV DISCORD_TOKEN="YOUR_NEW_TOKEN_HERE"
 
 # Run the bot
 CMD ["python", "crypto_bot.py"]
+

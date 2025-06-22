@@ -1,7 +1,15 @@
 type: worker
 start: python crypto_bot.py
+build: docker build -t crypto-bot .
 env:
-  - DISCORD_TOKEN=${DISCORD_TOKEN}
+  - DISCORD_TOKEN
   - COINGECKO_API_TIMEOUT=30
   - COINGECKO_RETRIES=3
-buildCommand: docker build -t crypto-bot .
+
+# Disable port scanning
+healthCheck:
+  type: NONE
+  interval: 300s
+  timeout: 30s
+  retries: 3
+  startPeriod: 30s
