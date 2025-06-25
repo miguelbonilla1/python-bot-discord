@@ -1,11 +1,11 @@
-version: '3.8'
+version: '3'
 
 services:
   crypto-bot:
     build: .
     environment:
-      - DISCORD_TOKEN=${DISCORD_BOT_TOKEN}
-    env_file:
-      - .env
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+    working_dir: /app
+    volumes:
+      - .:/app
     restart: unless-stopped
-  
